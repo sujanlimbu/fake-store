@@ -4,9 +4,9 @@ import Footer from "../components/Footer";
 function Login() {
     return (
         <>
-            <div className="cart-container">
+            <div className="login-container">
                 <Header />
-                <div className="cart-body">
+                <div className="login-body">
                     <p> Login page coming soon!!</p>
                 </div>
                 <Footer />
