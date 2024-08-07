@@ -1,7 +1,16 @@
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 function Cart() {
     return (
         <>
-            Your cart will in this page!
+            <div className="cart-container">
+                <Header />
+                <div className="cart-body">
+                    <p>Your cart will in this page!</p>
+                </div>
+                <Footer />
+            </div>
         </>
     );
 }
