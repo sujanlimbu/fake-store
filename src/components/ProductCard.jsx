@@ -1,16 +1,22 @@
+import styled from "styled-components";
+
+const Card = styled.div`
+    height: auto;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid;
+`;
+
+const ProductImage = styled.img`
+    height: 280px;
+    width: 280px;
+    object-fit: contain;
+`;
+
 function ProductCard({ product }) {
     return (
-        <div style={{
-            height: 'auto',
-            width: '300px',
-            padding: '10px',
-            border: '1px solid'
-        }}>
-            <img src={product.image} alt="" style={{
-                height: '280px',
-                width: '280px',
-                objectFit: 'contain'
-            }} />
+        <Card>
+            <ProductImage src={product.image} alt={product.title}/>
             <div>
                 <h5>${product.price}</h5>
                 <p>{product.title}</p>
@@ -21,7 +27,7 @@ function ProductCard({ product }) {
                 </button>
             </div>
 
-        </div>
+        </Card>
     );
 }
 

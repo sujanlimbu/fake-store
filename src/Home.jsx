@@ -5,6 +5,18 @@ import Footer from './components/Footer';
 import HomeCarousel from './components/HomeCarousel';
 import { useState, useEffect } from 'react';
 import ProductCard from './components/ProductCard';
+import styled from 'styled-components';
+
+const FeaturedSection = styled.div`
+
+`;
+
+const FeaturedProducts = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 10px;
+`;
 
 function Home() {
   const [error, setError] = useState(null);
@@ -25,19 +37,14 @@ function Home() {
         <Header />
         <div className="home-body">
           <HomeCarousel />
-          <div className="featured-product-container">
+          <FeaturedSection>
             <h4>Featured Products</h4>
-            <div className="card-container" style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'start',
-              gap: '5px'
-            }}>
+            <FeaturedProducts>
               {products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} />
               ))}
-            </div>
-          </div>
+            </FeaturedProducts>
+          </FeaturedSection>
         </div>
 
         <Footer />
