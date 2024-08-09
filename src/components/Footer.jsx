@@ -1,8 +1,8 @@
 function Footer(){
     return (
-        <>
-            Footer content
-        </>
+       <footer className="m-2">
+            My Foot
+       </footer>
     );
 }
 

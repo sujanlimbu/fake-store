@@ -7,7 +7,8 @@ function Shop() {
             <div className="shop-container">
                 <Header />
                 <div className="shop-body">
-                    <p> Item list coming soon!!</p>
+                    <p> Item 
+                    list coming soon!!</p>
                 </div>
                 <Footer />
             </div>
@@ -15,3 +16,5 @@ function Shop() {
     );
 }
 export default Shop;
+
+

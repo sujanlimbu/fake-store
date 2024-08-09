@@ -1,19 +1,17 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header() {
+    const location = useLocation();
     return (
-        <>
+        <nav className="navbar">
+            <Link to="/" className="navbar-brand">Fake Shop</Link>
             <div className="nav">
-                <img src="" alt="LOGO" />
-                <div className="nav-menu-items">
-                    <Link to="/">Home</Link>
-                    <Link to="/shop">Shop</Link>
-                    <Link to="/cart">Cart</Link>
-                    <Link to="/login">Login</Link>
-                </div>
+                <Link to="/" className={`nav-link ${location.pathname === "/"? "active": ""}`} >Home</Link>
+                <Link to="/shop" className={`nav-link ${location.pathname === "/shop"? "active": ""}`}>Shop</Link>
+                <Link to="/cart" className={`nav-link ${location.pathname === "/cart"? "active": ""}`}>Cart</Link>
+                <Link to="/login" className={`nav-link ${location.pathname === "/login"? "active": ""}`}>Login</Link>
             </div>
-
-        </>
+        </nav>
     );
 }
 
