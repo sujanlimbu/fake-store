@@ -58,8 +58,7 @@
     padding-top: 10px;
 }
 
-.product-card h3,
-p {
+#product-title {
     margin: 10px 0;
     white-space: nowrap;
     overflow: hidden;

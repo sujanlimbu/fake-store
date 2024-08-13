@@ -3,12 +3,13 @@ import ErrorPage from "./pages/ErrorPage";
 import Shop from "./pages/Shop";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import ProductView from "./pages/ProductView";
 
 const routes = [
     {
         path: "/",
         element: <Home />,
-        errorElement: <ErrorPage />
+        errorElement: <ErrorPage message="Page not found"/>
     },
     {
         path: "/shop",
@@ -21,6 +22,10 @@ const routes = [
     {
         path: "/cart",
         element: <Cart />
+    },
+    {
+        path: "/product/:productId",
+        element: <ProductView />
     }
 ];
 

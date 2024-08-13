@@ -6,6 +6,8 @@ import HomeCarousel from './components/HomeCarousel';
 import { useState, useEffect } from 'react';
 import ProductCard from './components/ProductCard';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import LoadingScreen from './components/LoadingScreen';
 
 const HomeBody = styled.div`
 `;
@@ -35,6 +37,9 @@ function Home() {
       .finally(() => setLoading(false))
   }, []);
 
+  if (loading)
+    return <LoadingScreen />;
+
   return (
     <>
       <div className="wrapper">
@@ -45,7 +50,9 @@ function Home() {
             <h4>Featured Products</h4>
             <div className="featured-products">
               {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <Link key={product.id} to={`/product/${product.id}`}>
+                  <ProductCard product={product} />
+                </Link>
               ))}
             </div>
             {/* <FeaturedProducts>
