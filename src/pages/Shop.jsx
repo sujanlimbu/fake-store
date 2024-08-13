@@ -4,9 +4,9 @@ import Footer from "../components/Footer";
 function Shop() {
     return (
         <>
-            <div className="shop-container">
+            <div className="wrapper">
                 <Header />
-                <div className="shop-body">
+                <div className="content-body">
                     <p> Item 
                     list coming soon!!</p>
                 </div>

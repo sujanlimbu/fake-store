@@ -31,7 +31,7 @@ const altImage = {
 function HomeCarousel() {
     return (
         <>
-            Carousel Slider here
+            ---- Carousel Slider here ----
         </>
 
     );

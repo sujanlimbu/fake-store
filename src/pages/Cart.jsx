@@ -4,9 +4,9 @@ import Footer from "../components/Footer";
 function Cart() {
     return (
         <>
-            <div className="cart-container">
+            <div className="wrapper">
                 <Header />
-                <div className="cart-body">
+                <div className="content-body">
                     <p>Your cart will in this page!</p>
                 </div>
                 <Footer />

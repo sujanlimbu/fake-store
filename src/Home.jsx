@@ -7,8 +7,10 @@ import { useState, useEffect } from 'react';
 import ProductCard from './components/ProductCard';
 import styled from 'styled-components';
 
-const FeaturedSection = styled.div`
+const HomeBody = styled.div`
+`;
 
+const FeaturedSection = styled.div`
 `;
 
 const FeaturedProducts = styled.div`
@@ -16,6 +18,8 @@ const FeaturedProducts = styled.div`
   flex-direction: row;
   justify-content: start;
   gap: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
 `;
 
 function Home() {
@@ -24,7 +28,7 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=6")
+    fetch("https://fakestoreapi.com/products?limit=5")
       .then(res => res.json())
       .then(data => setProducts(data))
       .catch(err => setError(err))
@@ -33,17 +37,22 @@ function Home() {
 
   return (
     <>
-      <div className="home-container">
+      <div className="wrapper">
         <Header />
-        <div className="home-body">
+        <div className="content-body">
           <HomeCarousel />
           <FeaturedSection>
             <h4>Featured Products</h4>
-            <FeaturedProducts>
+            <div className="featured-products">
               {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
-            </FeaturedProducts>
+            </div>
+            {/* <FeaturedProducts>
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </FeaturedProducts> */}
           </FeaturedSection>
         </div>
 
