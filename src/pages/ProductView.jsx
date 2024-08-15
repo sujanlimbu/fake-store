@@ -64,7 +64,6 @@ function ProductView() {
                                     </svg>
                                 </button>
                             </div>
-
                             <p id="product-description">{product.description}</p>
                         </div>
                     </div>
