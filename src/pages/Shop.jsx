@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import LoadingScreen from "../components/LoadingScreen";
 import ProductCard from "../components/ProductCard";
@@ -32,7 +34,7 @@ function Shop({ cartItems, setCartItems }) {
                 setTotalProducts(json.length);
                 setProducts(json.slice(0, productDisplayCount));
             })
-            .catch(err => alert("Something went wrong"))
+            .catch(err => toast.error("Something went wrong"))
             .finally(() => setLoading(false));
     }, [productDisplayCount, activeCategory]);
 
@@ -49,10 +51,11 @@ function Shop({ cartItems, setCartItems }) {
                     ? { ...item, quantity: item.quantity + 1 }
                     : item
             ));
+            toast.success('Item quantity updated in cart!');
         } else {
             setCartItems([...cartItems, { productId: prdct.id, quantity: 1 }]);
+            toast.success('Item added to cart!');
         }
-        alert("Cart item added.");
     }
 
     const handleLoadMore = () => {

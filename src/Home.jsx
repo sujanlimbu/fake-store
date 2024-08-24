@@ -4,9 +4,9 @@ import HomeCarousel from './components/HomeCarousel';
 import { useState, useEffect } from 'react';
 import ProductCard from './components/ProductCard';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import LoadingScreen from './components/LoadingScreen';
-import { useCart } from './hooks/Cart';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HomeBody = styled.div`
 `;
@@ -45,10 +45,11 @@ function Home({ cartItems, setCartItems }) {
           ? { ...item, quantity: item.quantity + 1 }
           : item
       ));
+      toast.success('Item quantity updated in cart!');
     } else {
       setCartItems([...cartItems, { productId: prdct.id, quantity: 1 }]);
+      toast.success('Item added to cart!');
     }
-    alert("Cart item added.");
   }
 
   if (loading)
