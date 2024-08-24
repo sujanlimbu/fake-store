@@ -3,6 +3,8 @@ import LoadingScreen from "./LoadingScreen";
 import "./CartItemCard.css"
 import QuantityBox from "./QuantityBox";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function CartItemCard({ item, cartItems, setCartItems }) {
     const [loading, setLoading] = useState(true);
@@ -20,6 +22,7 @@ function CartItemCard({ item, cartItems, setCartItems }) {
 
     const handleDeleteClick = () => {
         setCartItems(cartItems.filter(p => p.productId !== item.productId));
+        toast.error(`${product.title} deleted.`)
     };
 
     const handleQuantityChange = (newQuantity) => {

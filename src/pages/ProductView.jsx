@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import ErrorPage from "./ErrorPage";
 import LoadingScreen from "../components/LoadingScreen";
@@ -17,7 +19,7 @@ function ProductView({ cartItems, setCartItems }) {
         fetch(`https://fakestoreapi.com/products/${productId}`)
             .then(res => res.json())
             .then(data => setProduct(data))
-            .catch(err => alert("Error fetching data"))
+            .catch(err => toast.error("Error fetching data"))
             .finally(() => setLoading(false))
     }, [productId]);
 
@@ -29,10 +31,11 @@ function ProductView({ cartItems, setCartItems }) {
                     ? { ...item, quantity: (item.quantity + quantity) }
                     : item
             ));
+            toast.success('Item quantity updated in cart!');
         } else {
             setCartItems([...cartItems, { productId: product.id, quantity: quantity }]);
+            toast.success('Item added to cart!');
         }
-        alert("Cart item added.");
     };
 
     if (loading) {
