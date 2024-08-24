@@ -8,7 +8,7 @@ function Footer() {
                 <p>Be the first to know about our special offers, new product launches and event</p>
                 <div className="newsletter-form">
                     <input className="email" type="text" name="email" id="email" placeholder="Email Address" />
-                    <input className= "signup" type="button" value="Sign Up" />
+                    <input className="signup" type="button" value="Sign Up" />
                 </div>
             </div>
             <div className="footer-link-section">
@@ -33,6 +33,15 @@ function Footer() {
                 <ul>
                     <li>About Us</li>
                     <li>Explore our stories</li>
+                </ul>
+            </div>
+
+            <div className="footer-link-section">
+                <h4>Developer</h4>
+                <ul>
+                    <li><a href="https://github.com/sujanlimbu" target="_blank">Author: Sujan Khapung</a></li>
+                    <li><a href="https://github.com/sujanlimbu/cv-generator" target="_blank" rel="noopener noreferrer">Source Code Here</a></li>
+                    <li><a href="https://fakestoreapi.com/" target="_blank">API powered by Fake Store API</a></li>
                 </ul>
             </div>
         </footer>

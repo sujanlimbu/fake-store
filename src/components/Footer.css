@@ -77,6 +77,10 @@
     margin: 5px 0px;
 }
 
+.footer-link-section a{
+    color: inherit;
+}
+
 @media (max-width: 550px) {
     .footer {
         display: flex;
