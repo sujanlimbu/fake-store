@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import LoadingScreen from "../components/LoadingScreen";
 import ProductCard from "../components/ProductCard";
 import "./Shop.css";
 
-function Shop() {
+function Shop({ cartItems, setCartItems }) {
     const [categoryList, setCategoryList] = useState([]);
     const [products, setProducts] = useState([]);
     const [productDisplayCount, setProductDisplayCount] = useState(10);
@@ -44,6 +41,20 @@ function Shop() {
         setProductDisplayCount(10);
     };
 
+    const addToCart = (prdct) => {
+        const existingItem = cartItems.find(item => item.productId === prdct.id);
+        if (existingItem) {
+            setCartItems(cartItems.map(item =>
+                item.productId === prdct.id
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
+            ));
+        } else {
+            setCartItems([...cartItems, { productId: prdct.id, quantity: 1 }]);
+        }
+        alert("Cart item added.");
+    }
+
     const handleLoadMore = () => {
         setProductDisplayCount(count => count + 10);
     };
@@ -53,30 +64,24 @@ function Shop() {
     }
     return (
         <>
-            <div className="wrapper">
-                <Header />
-                <div className="content-body">
-                    <div className="categories-container">
-                        <p onClick={() => handleCategoryClick("")} className={`category-item ${activeCategory === "" ? "category-active" : ""}`}> All Products</p>
-                        {categoryList.map((category) => (
-                            <p
-                                key={category}
-                                onClick={() => handleCategoryClick(category)}
-                                className={`category-item ${activeCategory === category ? "category-active" : ""}`}>
-                                {category}
-                            </p>
-                        ))}
-                    </div>
-                    <div className="product-list">
-                        {products.map((product) => (
-                            <Link key={product.id} to={`/product/${product.id}`}>
-                                <ProductCard product={product} />
-                            </Link>
-                        ))}
-                    </div>
-                    {productDisplayCount < totalProducts && (<button className="btn btn-secondary" onClick={handleLoadMore}>Load more</button>)}
+            <div className="content-body">
+                <div className="categories-container">
+                    <p onClick={() => handleCategoryClick("")} className={`category-item ${activeCategory === "" ? "category-active" : ""}`}> All Products</p>
+                    {categoryList.map((category) => (
+                        <p
+                            key={category}
+                            onClick={() => handleCategoryClick(category)}
+                            className={`category-item ${activeCategory === category ? "category-active" : ""}`}>
+                            {category}
+                        </p>
+                    ))}
                 </div>
-                <Footer />
+                <div className="product-list">
+                    {products.map((product) => (
+                        <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+                    ))}
+                </div>
+                {productDisplayCount < totalProducts && (<button className="btn btn-secondary" onClick={handleLoadMore}>Load more</button>)}
             </div>
         </>
     );

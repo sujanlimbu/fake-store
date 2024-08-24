@@ -21,21 +21,21 @@ p{
     word-break: break-word; 
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    min-height: 100vh;
-}
-
-.content-body {
-    flex: 1;
+/* .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 100vh;
+} */
+
+.content-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     padding: 20px;
+    min-height: calc(100vh - 300px);
 }
 
 .btn {

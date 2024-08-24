@@ -2,7 +2,10 @@ import "./LoadingScreen.css";
 
 function LoadingScreen(){
     return (
-        <div className="loader"></div>
+        <div className="content-body">
+            <div className="loader"></div>
+        </div>
+        
     );
 }
 

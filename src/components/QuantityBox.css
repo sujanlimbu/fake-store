@@ -1,0 +1,53 @@
+.quantity-box {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 5px;
+}
+
+.quantity-actions {
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: row;
+}
+
+.quantity-actions button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    width: 30px;
+    height: auto;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.quantity-actions button:hover {
+    opacity: 90%;
+}
+
+.minus-button:disabled {
+    background-color: #ccc;
+    color: #777; 
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.quantity-input-box {
+    width: 30px;
+    text-align: center;
+    border: none;
+    padding: 8px 10px;
+    font-size: 12px;
+    outline: none;
+}
+
+.quantity-input-box::-webkit-inner-spin-button,
+.quantity-input-box::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

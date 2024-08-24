@@ -1,15 +1,14 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import CartItemCard from "../components/CartItemCard";
+import "./Cart.css";
 
-function Cart() {
+function Cart({ cartItems, setCartItems }) {
+
     return (
         <>
-            <div className="wrapper">
-                <Header />
-                <div className="content-body">
-                    <p>Your cart will in this page!</p>
-                </div>
-                <Footer />
+            <div className="content-body cart-body">
+                {cartItems.map((item) => (
+                    <CartItemCard key={item.productId} item={item} cartItems={cartItems} setCartItems={setCartItems} />
+                ))}
             </div>
         </>
     );

@@ -1,13 +1,12 @@
 import './Home.css'
 
-import Header from './components/Header';
-import Footer from './components/Footer';
 import HomeCarousel from './components/HomeCarousel';
 import { useState, useEffect } from 'react';
 import ProductCard from './components/ProductCard';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import LoadingScreen from './components/LoadingScreen';
+import { useCart } from './hooks/Cart';
 
 const HomeBody = styled.div`
 `;
@@ -24,7 +23,7 @@ const FeaturedProducts = styled.div`
   white-space: nowrap;
 `;
 
-function Home() {
+function Home({ cartItems, setCartItems }) {
   const [error, setError] = useState(null);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -37,33 +36,41 @@ function Home() {
       .finally(() => setLoading(false))
   }, []);
 
+  const addToCart = (prdct) => {
+    const existingItem = cartItems.find(item => item.productId === prdct.id);
+
+    if (existingItem) {
+      setCartItems(cartItems.map(item =>
+        item.productId === prdct.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      ));
+    } else {
+      setCartItems([...cartItems, { productId: prdct.id, quantity: 1 }]);
+    }
+    alert("Cart item added.");
+  }
+
   if (loading)
     return <LoadingScreen />;
 
   return (
     <>
-      <div className="wrapper">
-        <Header />
-        <div className="content-body">
-          <HomeCarousel />
-          <FeaturedSection>
-            <h4>Featured Products</h4>
-            <div className="featured-products">
-              {products.map((product) => (
-                <Link key={product.id} to={`/product/${product.id}`}>
-                  <ProductCard product={product} />
-                </Link>
-              ))}
-            </div>
-            {/* <FeaturedProducts>
+      <div className="content-body">
+        <HomeCarousel />
+        <FeaturedSection>
+          <h4>Featured Products</h4>
+          <div className="featured-products">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+            ))}
+          </div>
+          {/* <FeaturedProducts>
               {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </FeaturedProducts> */}
-          </FeaturedSection>
-        </div>
-
-        <Footer />
+        </FeaturedSection>
       </div>
     </>
   )

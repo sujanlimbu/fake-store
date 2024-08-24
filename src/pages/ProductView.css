@@ -45,13 +45,9 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     gap: 5px;
     border-bottom: 1px solid black;
-}
-
-.add-to-cart-container .quantity{
-    flex: 1;
-    font-size: 1rem;
 }
 
 .add-to-cart-container .add-to-cart-button{
