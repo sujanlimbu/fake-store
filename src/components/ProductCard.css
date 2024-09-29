@@ -46,6 +46,7 @@
     transform: scale(1.2);
     transition: fill 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
+
 /* 
 .image-section svg.favorited {
     fill: #EA3323;
@@ -58,7 +59,7 @@
     padding-top: 10px;
 }
 
-#product-title {
+.product-card-product-title {
     margin: 10px 0;
     white-space: nowrap;
     overflow: hidden;

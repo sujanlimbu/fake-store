@@ -2,7 +2,6 @@ import "./ProductCard.css"
 import { Link } from "react-router-dom";
 
 function ProductCard({ product, onAddToCart }) {
-
     const handleAddToCart = () => {
         onAddToCart(product);
     };
@@ -18,7 +17,7 @@ function ProductCard({ product, onAddToCart }) {
             <div className="info-section">
                 <h3>${product.price}</h3>
                 <Link key={product.id} to={`/product/${product.id}`}>
-                    <p id="product-title">{product.title}</p>
+                    <p className="product-card-product-title">{product.title}</p>
                 </Link>
                 <button type="button" className="btn btn-primary" onClick={handleAddToCart}>Add to Cart
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
