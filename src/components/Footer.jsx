@@ -41,7 +41,7 @@ function Footer() {
                 <ul>
                     <li><a href="https://github.com/sujanlimbu" target="_blank">Author: Sujan Khapung</a></li>
                     <li><a href="https://github.com/sujanlimbu/cv-generator" target="_blank" rel="noopener noreferrer">Source Code Here</a></li>
-                    <li><a href="https://fakestoreapi.com/" target="_blank">API powered by Fake Store API</a></li>
+                    <li><a href="https://fakestoreapi.com/" target="_blank">API powered by <strong>Fake Store API</strong></a></li>
                 </ul>
             </div>
         </footer>

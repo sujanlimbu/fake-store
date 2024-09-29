@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import "./ProductCard.css"
 import { Link } from "react-router-dom";
 

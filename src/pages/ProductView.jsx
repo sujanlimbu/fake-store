@@ -1,8 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
+import { toast } from 'react-toastify';
 import ErrorPage from "./ErrorPage";
 import LoadingScreen from "../components/LoadingScreen";
 import "./ProductView.css";
@@ -12,7 +10,6 @@ function ProductView({ cartItems, setCartItems }) {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {

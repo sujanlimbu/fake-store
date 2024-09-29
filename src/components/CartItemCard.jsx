@@ -3,12 +3,10 @@ import LoadingScreen from "./LoadingScreen";
 import "./CartItemCard.css"
 import QuantityBox from "./QuantityBox";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 function CartItemCard({ item, cartItems, setCartItems }) {
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [product, setPrduct] = useState(null);
     const [quantity, setQuantity] = useState(item.quantity);
 
@@ -16,13 +14,13 @@ function CartItemCard({ item, cartItems, setCartItems }) {
         fetch(`https://fakestoreapi.com/products/${item.productId}`)
             .then(res => res.json())
             .then(json => setPrduct(json))
-            .catch(err => setError(err))
+            .catch(err => toast.error(err))
             .finally(() => setLoading(false));
     }, []);
 
     const handleDeleteClick = () => {
         setCartItems(cartItems.filter(p => p.productId !== item.productId));
-        toast.error(`${product.title} deleted.`)
+        toast.success(`${product.title} deleted.`)
     };
 
     const handleQuantityChange = (newQuantity) => {

@@ -1,7 +1,3 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import { useCart } from "../hooks/Cart";
-
 function Login() {
 
     return (
