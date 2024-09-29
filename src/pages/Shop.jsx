@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 import LoadingScreen from "../components/LoadingScreen";
 import ProductCard from "../components/ProductCard";
@@ -12,14 +11,13 @@ function Shop({ cartItems, setCartItems }) {
     const [productDisplayCount, setProductDisplayCount] = useState(10);
     const [totalProducts, setTotalProducts] = useState(0);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const [activeCategory, setActiveCategory] = useState("");
 
     useEffect(() => {
         fetch("https://fakestoreapi.com/products/categories")
             .then(res => res.json())
             .then(data => setCategoryList(data))
-            .catch(err => setError(err));
+            .catch(err => toast.error(err));
     }, []);
 
     useEffect(() => {

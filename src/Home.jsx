@@ -5,8 +5,7 @@ import { useState, useEffect } from 'react';
 import ProductCard from './components/ProductCard';
 import styled from 'styled-components';
 import LoadingScreen from './components/LoadingScreen';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 const HomeBody = styled.div`
 `;
